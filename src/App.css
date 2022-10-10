@@ -1,11 +1,5 @@
-.color-light-grey {
-  backround-clor: #878686
-}
-
-.color-grey {
-  backround-clor: #6b6b6b
-}
-
-.color-dark-grey {
-  backround-clor: #545353
+#root {
+  width: 100%;
+  height: 100%;
+  background-color: #181818;
 }
