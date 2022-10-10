@@ -1,0 +1,17 @@
+export const categories = [
+    { name: 'New', icon: <i className="fa-solid fa-sparkles"></i> },
+    { name: 'Coding', icon: <i className="fa-sharp fa-solid fa-code"></i> },
+    { name: 'ReactJS', icon: <i className="fa-sharp fa-solid fa-code"></i> },
+    { name: 'Music', icon: <i className="fa-solid fa-music"></i> },
+    { name: 'Education', icon: <i className="fa-solid fa-school"></i> },
+    { name: 'Podcast', icon: <i className="fa-solid fa-podcast"></i> },
+    { name: 'Movie', icon: <i className="fa-solid fa-camera-movie"></i> },
+    { name: 'Gaming', icon: <i className="fa-solid fa-headset"></i> },
+    { name: 'Live', icon: <i className="fa-solid fa-tower-broadcast"></i> },
+    { name: 'Sport', icon: <i className="fa-solid fa-volleyball"></i> },
+    { name: 'Fashion', icon: <i className="fa-sharp fa-solid fa-person-dress"></i>},
+    { name: 'Beauty', icon: <i className="fa-solid fa-lips"></i> },
+    { name: 'Comedy', icon: <i className="fa-solid fa-masks-theater"></i> },
+    { name: 'Gym', icon: <i className="fa-solid fa-dumbbell"></i>},
+    { name: 'Crypto', icon: <i className="fa-solid fa-hexagon-vertical-nft-slanted"></i> },
+  ];
