@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import { categories } from "../../utils/constants";
+import { fetchFromAPI } from "../../utils/fetchFormAPI";
 import { Button } from "./Button/Button";
 import { Card } from "./Card/Card";
 
 export const Feed = () => {
     const [selectedGenre, setSelectedGenre] = useState("New");
+    const [videos, setVideos] = useState([]);
+
+    useEffect(() => {
+        fetchFromAPI(`search?part=snippet&q=${selectGenre}`)
+            .then(data => {
+                setVideos(data.items);
+            })
+    }, []);
+    console.log(videos);
     const selectGenre = (e) => {
         e.preventDefault();
 
         setSelectedGenre(e.target.name);
     }
+
     return (
         <div className="container-fluid">
             <div className="row">
@@ -28,24 +39,8 @@ export const Feed = () => {
                 <div className="col">
                     <h1 className="text-light m-3">{selectedGenre} <span style={{color: 'red'}}>video</span></h1>
                         <div className="row gy-4">
-                            <div className="col">
+                            {videos.map(x => <Card key={x.id.videoId} {...x}/>)}
                                 <Card/>
-                            </div>
-                            <div className="col">
-                                <Card/>
-                            </div>
-                            <div className="col">
-                                <Card/>
-                            </div>
-                            <div className="col">
-                                <Card/>
-                            </div>
-                            <div className="col">
-                                <Card/>
-                            </div>
-                            <div className="col">
-                                <Card/>
-                            </div>
                         </div>
                 </div>
             </div>
