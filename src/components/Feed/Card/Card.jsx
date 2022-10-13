@@ -1,5 +1,4 @@
 export const Card = (props) => {
-    console.log(props?.snippet?.thumbnails?.high);
     return (
         <div className="col">
             <div className="card border-0" style={{ width: "18rem", borderRadius: 0 }}>

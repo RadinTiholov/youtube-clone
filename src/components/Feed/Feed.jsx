@@ -9,12 +9,12 @@ export const Feed = () => {
     const [videos, setVideos] = useState([]);
 
     useEffect(() => {
-        fetchFromAPI(`search?part=snippet&q=${selectGenre}`)
+        fetchFromAPI(`search?part=snippet&q=${selectedGenre}`)
             .then(data => {
                 setVideos(data.items);
             })
-    }, []);
-    console.log(videos);
+    }, [selectedGenre]);
+
     const selectGenre = (e) => {
         e.preventDefault();
 
