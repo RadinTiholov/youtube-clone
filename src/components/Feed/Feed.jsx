@@ -4,21 +4,19 @@ import { fetchFromAPI } from "../../utils/fetchFormAPI";
 import { Button } from "./Button/Button";
 import { Card } from "./Card/Card";
 
-export const Feed = () => {
-    const [selectedGenre, setSelectedGenre] = useState("New");
-    const [videos, setVideos] = useState([]);
+export const Feed = (props) => {
 
     useEffect(() => {
-        fetchFromAPI(`search?part=snippet&q=${selectedGenre}`)
+        fetchFromAPI(`search?part=snippet&q=${props.selectedGenre}`)
             .then(data => {
-                setVideos(data.items);
+                props.setVideos(data.items);
             })
-    }, [selectedGenre]);
+    }, [props.selectedGenre]);
 
     const selectGenre = (e) => {
         e.preventDefault();
 
-        setSelectedGenre(e.target.name);
+        props.setSelectedGenre(e.target.name);
     }
 
     return (
@@ -37,9 +35,9 @@ export const Feed = () => {
                     </div>
                 </div>
                 <div className="col">
-                    <h1 className="text-light m-3">{selectedGenre} <span style={{color: 'red'}}>video</span></h1>
+                    <h1 className="text-light m-3">{props.selectedGenre} <span style={{color: 'red'}}>video</span></h1>
                         <div className="row gy-4">
-                            {videos.map(x => <Card key={x.id.videoId} {...x}/>)}
+                            {props.videos.map(x => <Card key={x.id.videoId} {...x}/>)}
                                 <Card/>
                         </div>
                 </div>

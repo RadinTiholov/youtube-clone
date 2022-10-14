@@ -5,13 +5,26 @@ import { Feed } from './components/Feed/Feed';
 import { VideoDetail } from './components/VideoDetail/VideoDetail';
 import { ChannelDetail } from './components/ChannelDetail/ChannelDetail';
 import { SearchFeed } from './components/SearchFeed/SearchFeed';
+import { useState } from 'react';
 
 function App() {
+    const [videos, setVideos] = useState([]);
+    const [selectedGenre, setSelectedGenre] = useState("New");
+
+    const filter = (e, search) => {
+        e.preventDefault();
+        setSelectedGenre(search);
+    }
     return (
         <div>
-            <Header />
+            <Header filter={filter} />
             <Routes>
-                <Route path='/' element={<Feed />} />
+                <Route path='/' element={<Feed
+                    videos={videos}
+                    setVideos={setVideos}
+                    selectedGenre={selectedGenre}
+                    setSelectedGenre={setSelectedGenre} />}
+                />
                 <Route path='/video/:id' element={<VideoDetail />} />
                 <Route path='/channel/:id' element={<ChannelDetail />} />
                 <Route path='/search/:searchTerm' element={<SearchFeed />} />
