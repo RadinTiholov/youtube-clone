@@ -22,7 +22,7 @@ export const Feed = (props) => {
 
         props.setSelectedGenre(e.target.name);
     }
-
+    console.log(props.videos);
     return (
         <div className="container-fluid">
             <div className="row">
@@ -43,7 +43,7 @@ export const Feed = (props) => {
                         <div className="row gy-4">
                             {isLoading 
                                 ? <Spinner/>
-                                : props.videos.map(x => <Card key={x.id.videoId} {...x} height="200px" width="18rem"/>)}
+                                : props.videos.map(x => <Card key={x.id.videoId ? x.id.videoId : x.id.channelId} {...x} height="200px" width="18rem"/>)}
                             
                         </div>
                 </div>

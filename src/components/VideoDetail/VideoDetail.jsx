@@ -31,10 +31,17 @@ export const VideoDetail = () => {
                             src={`https://www.youtube.com/embed/${video?.id}`}
                             allowFullScreen
                         />
-                        <div className="text-light" text-light>
+                        <div className="text-white" text-light>
                             <h5>{video?.snippet?.title}</h5>
-                            <p>{video?.statistics?.viewCount} views</p>
-                            <p>{video?.snippet?.description} views</p>
+                            <div className="row">
+                                <div className="col-2">
+                                    <p>{video?.statistics?.viewCount} views</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{video?.statistics?.likeCount} likes</p>
+                                </div>
+                            </div>
+                            <p>{video?.snippet?.description}</p>
                         </div>
                     </div>
                     <div className="col mx-4 justify-content-center">
