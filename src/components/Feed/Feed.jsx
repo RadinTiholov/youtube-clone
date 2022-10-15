@@ -43,7 +43,7 @@ export const Feed = (props) => {
                         <div className="row gy-4">
                             {isLoading 
                                 ? <Spinner/>
-                                : props.videos.map(x => <Card key={x.id.videoId} {...x}/>)}
+                                : props.videos.map(x => <Card key={x.id.videoId} {...x} height="200px" width="18rem"/>)}
                             
                         </div>
                 </div>
