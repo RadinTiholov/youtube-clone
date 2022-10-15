@@ -10,7 +10,7 @@ export const Feed = (props) => {
 
     useEffect(() => {
         setIsLoading(true);
-        fetchFromAPI(`search?part=snippet&q=${props.selectedGenre}`)
+        fetchFromAPI(`search?part=snippet&q=${props.selectedGenre}&maxResults=48`)
             .then(data => {
                 props.setVideos(data.items);
                 setIsLoading(false);
