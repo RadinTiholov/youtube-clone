@@ -22,7 +22,7 @@ export const Feed = (props) => {
 
         props.setSelectedGenre(e.target.name);
     }
-    console.log(props.videos);
+    
     return (
         <div className="container-fluid">
             <div className="row">
