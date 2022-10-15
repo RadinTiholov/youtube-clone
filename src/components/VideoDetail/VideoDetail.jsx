@@ -7,7 +7,7 @@ export const VideoDetail = () => {
     const { id } = useParams();
     const [video, setVideo] = useState({});
     const [relatedVideos, setRelatedVideos] = useState([]);
-
+    console.log(video);
     useEffect(() => {
         fetchFromAPI(`videos?id=${id}&part=contentDetails,snippet,statistics`)
             .then(res => {
@@ -16,26 +16,30 @@ export const VideoDetail = () => {
             .catch(err => alert(err))
         fetchFromAPI(`search?relatedToVideoId=${id}&part=id,snippet&maxResults=10`)
             .then(res => {
-                setRelatedVideos(res.items.slice(0,10));
+                setRelatedVideos(res.items.slice(0, 10));
             })
             .catch(err => alert(err))
     }, [id])
-    
+
     return (
         <>
             <div className="container m-5">
                 <div className="row">
                     <div className="col-9">
                         <iframe
-                            style={{height: '60vh', width: '100%' }}
+                            style={{ height: '60vh', width: '100%' }}
                             src={`https://www.youtube.com/embed/${video?.id}`}
                             allowFullScreen
-                        />                
-                        <h5 className="text-light">{video?.snippet?.title}</h5>
+                        />
+                        <div className="text-light" text-light>
+                            <h5>{video?.snippet?.title}</h5>
+                            <p>{video?.statistics?.viewCount} views</p>
+                            <p>{video?.snippet?.description} views</p>
+                        </div>
                     </div>
                     <div className="col mx-4 justify-content-center">
                         <div className="row">
-                            {relatedVideos?.map(x => <Card key={x.id.videoId} {...x} height="150px" width="15rem"/>)}
+                            {relatedVideos?.map(x => <Card key={x.id.videoId} {...x} height="150px" width="15rem" />)}
                         </div>
                     </div>
                 </div>

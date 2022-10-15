@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Feed } from './components/Feed/Feed';
@@ -9,10 +9,11 @@ import { useState } from 'react';
 function App() {
     const [videos, setVideos] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState("New");
-
+    const navigate = useNavigate();
     const filter = (e, search) => {
         e.preventDefault();
         setSelectedGenre(search);
+        navigate('/');
     }
     return (
         <div>
